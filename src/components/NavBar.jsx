@@ -8,7 +8,7 @@ import { setUser, logOut } from "../redux/actions/userActions";
 
 const NavBar = ({ user, setUser, logOut }) => {
   const responseGoogle = (response) => {
-    if (response.error) return alert("refresh the page");
+    if (response.error) return false;
     const userObj = {
       ...response.profileObj,
       accessToken: response.accessToken,
