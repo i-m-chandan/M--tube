@@ -7,12 +7,11 @@ import { connect } from "react-redux";
 import { setUser, logOut } from "../redux/actions/userActions";
 
 const NavBar = ({ user, setUser, logOut }) => {
-  const responseGoogle = response => {
-    if (response.error)
-      return alert("Something has gone wrong. Please try again");
+  const responseGoogle = (response) => {
+    if (response.error) return alert("refresh the page");
     const userObj = {
       ...response.profileObj,
-      accessToken: response.accessToken
+      accessToken: response.accessToken,
     };
     setUser(userObj);
   };
@@ -80,9 +79,9 @@ const NavBar = ({ user, setUser, logOut }) => {
   );
 };
 
-const stateMapper = storeState => {
+const stateMapper = (storeState) => {
   return {
-    user: storeState.userState.user
+    user: storeState.userState.user,
   };
 };
 
